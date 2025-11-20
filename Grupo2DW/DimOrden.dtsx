@@ -1,0 +1,1674 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2025 2:35:42 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIEL"
+  DTS:CreatorName="DANIEL\hedac"
+  DTS:DTSID="{424032B4-080C-430A-B741-7D18D8A04952}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{F9C14D5D-025A-401E-BD66-3ACF5F59984A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D06CED01-9001-4174-8254-6F3CE7A0455C}"
+      DTS:ObjectName="localhost.DW_MARKETING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DW_MARKETING;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D06CED01-9001-4174-8254-6F3CE7A0455C}localhost.DW_MARKETING;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.magento2.magento]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{F77265D7-0D84-42C4-A5B0-ED6D3636E508}"
+      DTS:ObjectName="localhost.magento2.magento">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=magento;port=3307;database=magento2;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACDUPXPr20T3wZKhbFKjMiRfG0QYGKS5LjciMJ+rs8P0QAAAAAOgAAAAAIAACAAAAAv/I6JT0iDNkzHUyXTeLGu9JK7uQB9e/1qdWxDV7OEoiAAAADno3JVQFE09zvVEsIuaNp9Oc7u4Gxut4pZsHenrz73HUAAAAC7JnYhSEamMeIUkISzlFiPZBC1i5PkoZ6+2lj8JgD3qGFnyVUkInNIAHffvxRf5kpfMDyDfhDozoDd5TS5TVP5</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimOrden"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E1B08FFC-0FDB-4867-8865-AE8026142381}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimOrden"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimOrden\Actualizar Datos"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualizar Datos"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Dim_Orden
+SET estado_orden=?, fecha_creacion=?,fecha_envio=?,fecha_entrega=?
+WHERE order_id = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimOrden\Actualizar Datos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].Columns[Copy of estado_orden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of estado_orden"
+                      externalMetadataColumnId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].Columns[Copy of fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_creacion"
+                      externalMetadataColumnId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].Columns[Copy of fecha_envio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_envio"
+                      externalMetadataColumnId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].Columns[Copy of fecha_entrega]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_entrega"
+                      externalMetadataColumnId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].Columns[Copy of order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of order_id"
+                      externalMetadataColumnId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbDate"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbDate"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="dbDate"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Actualizar Datos.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimOrden\Buscar Registros"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Buscar Registros"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Orden]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Orden]) [refTable]
+where [refTable].[order_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="order_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="order_id" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="estado_orden" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="subtotal_orden" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="descuento_total" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="total_orden" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="cantidad_items" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha_creacion" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha_envio" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="fecha_entrega" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimOrden\Buscar Registros.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input].Columns[Copy of order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of order_id"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">order_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_entrega]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_entrega]"
+                      name="fecha_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">fecha_entrega</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_envio]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_envio]"
+                      name="fecha_envio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">fecha_envio</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_creacion]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_creacion]"
+                      name="fecha_creacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">fecha_creacion</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[estado_orden]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="20"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[estado_orden]"
+                      name="estado_orden"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">estado_orden</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Buscar Registros.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimOrden\Comparar Datos"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Comparar Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of estado_orden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of estado_orden"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_creacion"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of fecha_envio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_envio"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of fecha_entrega]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_entrega"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[fecha_entrega]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_entrega"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_entrega]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[fecha_envio]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_envio"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_envio]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[fecha_creacion]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha_creacion"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input].Columns[estado_orden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="estado_orden"
+                      lineageId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[estado_orden]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Comparar Datos.Outputs[Cambios en Datos]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambios en Datos"
+                  synchronousInputId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_entrega]} != #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_envio]} != #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_creacion]} != #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[estado_orden]} != #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Buscar Registros].fecha_entrega != [Copy of fecha_entrega] || [Buscar Registros].fecha_envio != [Copy of fecha_envio] || [Buscar Registros].fecha_creacion != [Copy of fecha_creacion] || [Buscar Registros].estado_orden != [Copy of estado_orden]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Comparar Datos.Outputs[Sin Cambios]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sin Cambios"
+                  synchronousInputId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_entrega]} == #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_envio]} == #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[fecha_creacion]} == #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]} || #{Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output].Columns[estado_orden]} == #{Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Buscar Registros].fecha_entrega == [Copy of fecha_entrega] || [Buscar Registros].fecha_envio == [Copy of fecha_envio] || [Buscar Registros].fecha_creacion == [Copy of fecha_creacion] || [Buscar Registros].estado_orden == [Copy of estado_orden]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimOrden\Convertir Datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convertir Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[order_id]"
+                      cachedDataType="ui4"
+                      cachedName="order_id"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[estado_orden]"
+                      cachedDataType="wstr"
+                      cachedLength="9"
+                      cachedName="estado_orden"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[estado_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="21"
+                      cachedScale="4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[descuento_total]"
+                      cachedDataType="numeric"
+                      cachedName="descuento_total"
+                      cachedPrecision="21"
+                      cachedScale="4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descuento_total]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[total_orden]"
+                      cachedDataType="numeric"
+                      cachedName="total_orden"
+                      cachedPrecision="20"
+                      cachedScale="4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[cantidad_items]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_items"
+                      cachedPrecision="12"
+                      cachedScale="4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[cantidad_items]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[fecha_envio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_envio"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_envio]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input].Columns[fecha_entrega]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_entrega"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]"
+                      name="Copy of order_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[order_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]"
+                      name="Copy of estado_orden"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[estado_orden]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of subtotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of subtotal]"
+                      name="Copy of subtotal"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[subtotal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of descuento_total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of descuento_total]"
+                      name="Copy of descuento_total"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descuento_total]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of total_orden]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of total_orden]"
+                      name="Copy of total_orden"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_orden]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of cantidad_items]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of cantidad_items]"
+                      name="Copy of cantidad_items"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[cantidad_items]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]"
+                      name="Copy of fecha_creacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]"
+                      name="Copy of fecha_envio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_envio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]"
+                      name="Copy of fecha_entrega"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimOrden\Escribir Nuevos Registros"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Escribir Nuevos Registros"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Orden]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimOrden\Escribir Nuevos Registros.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of order_id"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of order_id]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of estado_orden]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of estado_orden"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[estado_orden]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of estado_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of subtotal"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[subtotal_orden]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of subtotal]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of descuento_total]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of descuento_total"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[descuento_total]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of descuento_total]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of total_orden]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of total_orden"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[total_orden]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of total_orden]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of cantidad_items]"
+                      cachedDataType="i4"
+                      cachedName="Copy of cantidad_items"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[cantidad_items]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of cantidad_items]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_creacion"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of fecha_envio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_envio"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_envio]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_envio]" />
+                    <inputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].Columns[Copy of fecha_entrega]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_entrega"
+                      externalMetadataColumnId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_entrega]"
+                      lineageId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_entrega]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[order_key]"
+                      dataType="i4"
+                      name="order_key" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[estado_orden]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="estado_orden" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[subtotal_orden]"
+                      dataType="numeric"
+                      name="subtotal_orden"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[descuento_total]"
+                      dataType="numeric"
+                      name="descuento_total"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[total_orden]"
+                      dataType="numeric"
+                      name="total_orden"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[cantidad_items]"
+                      dataType="i4"
+                      name="cantidad_items" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_creacion]"
+                      dataType="dbDate"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_envio]"
+                      dataType="dbDate"
+                      name="fecha_envio" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input].ExternalColumns[fecha_entrega]"
+                      dataType="dbDate"
+                      name="fecha_entrega" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Escribir Nuevos Registros.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Escribir Nuevos Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Escribir Nuevos Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Escribir Nuevos Registros.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimOrden\Leer Magento"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Magento"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    a.entity_id AS order_id,
+    CASE WHEN
+    a.status = 'pending' THEN 'Creada'
+    WHEN a.status = 'processing' THEN 'Enviada'
+    WHEN a.status = 'complete' THEN 'Entregada'
+    WHEN a.status = 'canceled' THEN 'Cancelada'
+    ELSE 'Otro' END AS estado_orden,
+    a.grand_total-a.discount_amount AS subtotal,
+    a.discount_amount*-1 AS descuento_total,
+    a.grand_total AS total_orden,
+    a.total_qty_ordered AS cantidad_items,
+    b.created_at AS fecha_creacion,
+    c.created_at AS fecha_envio,
+    d.created_at AS fecha_entrega
+FROM sales_order a 
+LEFT JOIN sales_order_status_change_history b
+    ON a.entity_id = b.order_id AND b.status = 'pending'
+LEFT JOIN sales_order_status_change_history c
+    ON a.entity_id = c.order_id AND c.status = 'processing'
+LEFT JOIN sales_order_status_change_history d
+    ON a.entity_id = d.order_id AND d.status = 'complete';</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimOrden\Leer Magento.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.magento2.magento]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.magento2.magento]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[order_id]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[order_id]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[estado_orden]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_orden]"
+                      length="9"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[estado_orden]"
+                      name="estado_orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="21"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descuento_total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[descuento_total]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descuento_total]"
+                      name="descuento_total"
+                      precision="21"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_orden]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[total_orden]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_orden]"
+                      name="total_orden"
+                      precision="20"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[cantidad_items]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_items]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[cantidad_items]"
+                      name="cantidad_items"
+                      precision="12"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_creacion]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]"
+                      name="fecha_creacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_envio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_envio]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_envio]"
+                      name="fecha_envio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_entrega]"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_entrega]"
+                      name="fecha_entrega"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[order_id]"
+                      dataType="ui4"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_orden]"
+                      dataType="wstr"
+                      length="9"
+                      name="estado_orden" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      dataType="numeric"
+                      name="subtotal"
+                      precision="21"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[descuento_total]"
+                      dataType="numeric"
+                      name="descuento_total"
+                      precision="21"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[total_orden]"
+                      dataType="numeric"
+                      name="total_orden"
+                      precision="20"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_items]"
+                      dataType="numeric"
+                      name="cantidad_items"
+                      precision="12"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_envio]"
+                      dataType="dbTimeStamp"
+                      name="fecha_envio" />
+                    <externalMetadataColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_entrega]"
+                      dataType="dbTimeStamp"
+                      name="fecha_entrega" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[order_id]"
+                      dataType="ui4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[estado_orden]"
+                      dataType="wstr"
+                      length="9"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[estado_orden]"
+                      name="estado_orden" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="21"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[descuento_total]"
+                      dataType="numeric"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[descuento_total]"
+                      name="descuento_total"
+                      precision="21"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[total_orden]"
+                      dataType="numeric"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[total_orden]"
+                      name="total_orden"
+                      precision="20"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_items]"
+                      dataType="numeric"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_items]"
+                      name="cantidad_items"
+                      precision="12"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion]"
+                      name="fecha_creacion" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_envio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_envio]"
+                      name="fecha_envio" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_entrega]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[fecha_entrega]"
+                      name="fecha_entrega" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimOrden\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimOrden.Paths[Cambios en Datos]"
+              endId="Package\DimOrden\Actualizar Datos.Inputs[OLE DB Command Input]"
+              name="Cambios en Datos"
+              startId="Package\DimOrden\Comparar Datos.Outputs[Cambios en Datos]" />
+            <path
+              refId="Package\DimOrden.Paths[Data Conversion Output]"
+              endId="Package\DimOrden\Buscar Registros.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DimOrden\Convertir Datos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimOrden.Paths[Lookup Match Output]"
+              endId="Package\DimOrden\Comparar Datos.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DimOrden\Buscar Registros.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DimOrden.Paths[Lookup No Match Output]"
+              endId="Package\DimOrden\Escribir Nuevos Registros.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DimOrden\Buscar Registros.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DimOrden.Paths[Salida de origen de ADO NET]"
+              endId="Package\DimOrden\Convertir Datos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DimOrden\Leer Magento.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="129,42"
+          Id="Package\DimOrden"
+          TopLeft="131,165" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimOrden">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DimOrden\Leer Magento"
+          TopLeft="203,145" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\DimOrden\Escribir Nuevos Registros"
+          TopLeft="428,501" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DimOrden\Convertir Datos"
+          TopLeft="195,248" />
+        <EdgeLayout
+          Id="Package\DimOrden.Paths[Salida de origen de ADO NET]"
+          TopLeft="274.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DimOrden\Buscar Registros"
+          TopLeft="195,342" />
+        <EdgeLayout
+          Id="Package\DimOrden.Paths[Data Conversion Output]"
+          TopLeft="274.5,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimOrden.Paths[Lookup No Match Output]"
+          TopLeft="302.333333333333,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228.166666666667,117"
+              Start="0,0"
+              End="228.166666666667,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.4823815309842" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.4823815309842"
+                    Point2="0,47.4823815309842"
+                    Point3="4,47.4823815309842" />
+                  <mssgle:LineSegment
+                    End="224.166666666667,47.4823815309842" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224.166666666667,47.4823815309842"
+                    Point2="228.166666666667,47.4823815309842"
+                    Point3="228.166666666667,51.4823815309842" />
+                  <mssgle:LineSegment
+                    End="228.166666666667,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="58.2769466145833,52.4823815309842,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DimOrden\Comparar Datos"
+          TopLeft="109,494" />
+        <EdgeLayout
+          Id="Package\DimOrden.Paths[Lookup Match Output]"
+          TopLeft="250.666666666667,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.6666666666667,110"
+              Start="0,0"
+              End="-61.6666666666667,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6415552855407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.6415552855407"
+                    Point2="0,44.6415552855407"
+                    Point3="-4,44.6415552855407" />
+                  <mssgle:LineSegment
+                    End="-57.6666666666667,44.6415552855407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.6666666666667,44.6415552855407"
+                    Point2="-61.6666666666667,44.6415552855407"
+                    Point3="-61.6666666666667,48.6415552855407" />
+                  <mssgle:LineSegment
+                    End="-61.6666666666667,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-79.0247200520833,49.6415552855407,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\DimOrden\Actualizar Datos"
+          TopLeft="93,627" />
+        <EdgeLayout
+          Id="Package\DimOrden.Paths[Cambios en Datos]"
+          TopLeft="189,536">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,91"
+              Start="0,0"
+              End="-16.5,83.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="-4,45.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.5,45.5"
+                    Point2="-16.5,45.5"
+                    Point3="-16.5,49.5" />
+                  <mssgle:LineSegment
+                    End="-16.5,83.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.86009765625,50.5,81.2201953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimOrden\Leer Magento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimOrden\Escribir Nuevos Registros">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimOrden\Buscar Registros">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Orden]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

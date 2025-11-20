@@ -1,0 +1,1325 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2025 2:36:09 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIEL"
+  DTS:CreatorName="DANIEL\hedac"
+  DTS:DTSID="{631DC33B-6E02-43AB-A35F-7F600A761667}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{CDA179FB-7BEB-40A4-B0F1-6738BC77EEBA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{94D53499-3C11-450B-B1AC-7F24C33A231E}"
+      DTS:ObjectName="localhost.DW_MARKETING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DW_MARKETING;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{94D53499-3C11-450B-B1AC-7F24C33A231E}localhost.DW_MARKETING;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.magento2.magento]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{1CA462E4-EF73-4001-9F8B-6CD27ED0C9BA}"
+      DTS:ObjectName="localhost.magento2.magento">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=magento;port=3307;database=magento2;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB5xCW0TYQ+ruwOMhTxhgPWpgpTZbhY7kpAV9Km9OgrfAAAAAAOgAAAAAIAACAAAABmpJyvS4n+N+CkoFN96LEhVgGLlDyYyzvDJ5l6wMmfiCAAAAB03pxOWStnN2EtbcIB45EbAZKnt4T+7O1ieIaGWsXwM0AAAAD4UoKipiIzc1Dm1mu9Q41zDDX0sAwhlaTcJhgqUDIwxJMbqjhR/Mhd3F/Cf3T46jlKmYNXRr2Q1cn1K9DeeIxE</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimTipoCampania"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6C17A019-C8CE-4D84-AD65-0BA00FEFC7A0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimTipoCampania"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimTipoCampania\Actualizar Datos DW"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualizar Datos DW"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Dim_Tipo_Campania
+SET descripcion_tipo=?, valor_descuento_promedio=?, veces_utilizado=? WHERE tipo_campania_id =?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimTipoCampania\Actualizar Datos DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].Columns[tipo_campania]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="tipo_campania"
+                      externalMetadataColumnId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].Columns[descuento_promedio]"
+                      cachedDataType="numeric"
+                      cachedName="descuento_promedio"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].Columns[veces_utilizado]"
+                      cachedDataType="i4"
+                      cachedName="veces_utilizado"
+                      externalMetadataColumnId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Actualizar Datos DW.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimTipoCampania\Buscar Registros"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Buscar Registros"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Tipo_Campania]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Tipo_Campania]) [refTable]
+where [refTable].[tipo_campania_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="tipo_campania_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="tipo_campania_id" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="descripcion_tipo" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="valor_descuento_promedio" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="veces_utilizado" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimTipoCampania\Buscar Registros.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="id"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">tipo_campania_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[veces_utilizadoDW]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[veces_utilizadoDW]"
+                      name="veces_utilizadoDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">veces_utilizado</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[valor_descuento_promedioDW]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[valor_descuento_promedioDW]"
+                      name="valor_descuento_promedioDW"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">valor_descuento_promedio</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[descripcion_tipoDW]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[descripcion_tipoDW]"
+                      name="descripcion_tipoDW"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">descripcion_tipo</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimTipoCampania\Comparar Datos"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Comparar Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[tipo_campania]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="tipo_campania"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[descuento_promedio]"
+                      cachedDataType="numeric"
+                      cachedName="descuento_promedio"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[veces_utilizado]"
+                      cachedDataType="i4"
+                      cachedName="veces_utilizado"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[veces_utilizadoDW]"
+                      cachedDataType="i4"
+                      cachedName="veces_utilizadoDW"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[veces_utilizadoDW]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[valor_descuento_promedioDW]"
+                      cachedDataType="numeric"
+                      cachedName="valor_descuento_promedioDW"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[valor_descuento_promedioDW]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input].Columns[descripcion_tipoDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="descripcion_tipoDW"
+                      lineageId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[descripcion_tipoDW]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Comparar Datos.Outputs[Cambios en Datos]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambios en Datos"
+                  synchronousInputId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]} != #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[veces_utilizadoDW]} || #{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]} != #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[valor_descuento_promedioDW]} || #{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]} != #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[descripcion_tipoDW]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">veces_utilizado != veces_utilizadoDW || descuento_promedio != valor_descuento_promedioDW || tipo_campania != descripcion_tipoDW</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Comparar Datos.Outputs[Sin Cambios]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sin Cambios"
+                  synchronousInputId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]} == #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[veces_utilizadoDW]} || #{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]} == #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[valor_descuento_promedioDW]} || #{Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]} == #{Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output].Columns[descripcion_tipoDW]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">veces_utilizado == veces_utilizadoDW || descuento_promedio == valor_descuento_promedioDW || tipo_campania == descripcion_tipoDW</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimTipoCampania\Convertir Datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convertir Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input].Columns[tipo_campania_id]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="tipo_campania_id"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[tipo_campania_id]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input].Columns[descripcion_tipo_campania]"
+                      cachedDataType="wstr"
+                      cachedLength="26"
+                      cachedName="descripcion_tipo_campania"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descripcion_tipo_campania]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input].Columns[valor_descuento_promedio]"
+                      cachedDataType="numeric"
+                      cachedName="valor_descuento_promedio"
+                      cachedPrecision="16"
+                      cachedScale="8"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[valor_descuento_promedio]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input].Columns[total_veces_utilizado]"
+                      cachedDataType="numeric"
+                      cachedName="total_veces_utilizado"
+                      cachedPrecision="32"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_veces_utilizado]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[tipo_campania_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]"
+                      name="tipo_campania"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descripcion_tipo_campania]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]"
+                      name="descuento_promedio"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[valor_descuento_promedio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]"
+                      name="veces_utilizado"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_veces_utilizado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimTipoCampania\Leer Magento"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer Magento"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    DISTINCT simple_action AS tipo_campania_id,
+    CASE WHEN simple_action = 'by_percent' THEN 'Descuento por porcentaje'
+        WHEN simple_action = 'by_fixed' THEN 'Descuento fijo'
+        WHEN simple_action = 'cart_fixed' THEN 'Descuento fijo por carrito'
+        WHEN simple_action = 'buy_x_get_y' THEN 'Compra X y lleva Y'
+        ELSE 'Otro' END AS descripcion_tipo_campania,
+    AVG(discount_amount) AS valor_descuento_promedio,
+    SUM(times_used) AS total_veces_utilizado
+FROM salesrule GROUP BY simple_action;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimTipoCampania\Leer Magento.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.magento2.magento]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.magento2.magento]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[tipo_campania_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_campania_id]"
+                      length="32"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[tipo_campania_id]"
+                      name="tipo_campania_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descripcion_tipo_campania]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion_tipo_campania]"
+                      length="26"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[descripcion_tipo_campania]"
+                      name="descripcion_tipo_campania"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[valor_descuento_promedio]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[valor_descuento_promedio]"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[valor_descuento_promedio]"
+                      name="valor_descuento_promedio"
+                      precision="16"
+                      scale="8"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_veces_utilizado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[total_veces_utilizado]"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].Columns[total_veces_utilizado]"
+                      name="total_veces_utilizado"
+                      precision="32"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_campania_id]"
+                      dataType="wstr"
+                      length="32"
+                      name="tipo_campania_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion_tipo_campania]"
+                      dataType="wstr"
+                      length="26"
+                      name="descripcion_tipo_campania" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[valor_descuento_promedio]"
+                      dataType="numeric"
+                      name="valor_descuento_promedio"
+                      precision="16"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[total_veces_utilizado]"
+                      dataType="numeric"
+                      name="total_veces_utilizado"
+                      precision="32" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[tipo_campania_id]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[tipo_campania_id]"
+                      name="tipo_campania_id" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[descripcion_tipo_campania]"
+                      dataType="wstr"
+                      length="26"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[descripcion_tipo_campania]"
+                      name="descripcion_tipo_campania" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[valor_descuento_promedio]"
+                      dataType="numeric"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[valor_descuento_promedio]"
+                      name="valor_descuento_promedio"
+                      precision="16"
+                      scale="8" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[total_veces_utilizado]"
+                      dataType="numeric"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[total_veces_utilizado]"
+                      name="total_veces_utilizado"
+                      precision="32" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimTipoCampania\Nuevos Registros DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Nuevos Registros DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Tipo_Campania]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimTipoCampania\Nuevos Registros DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].Columns[veces_utilizado]"
+                      cachedDataType="i4"
+                      cachedName="veces_utilizado"
+                      externalMetadataColumnId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[veces_utilizado]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[veces_utilizado]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[tipo_campania_id]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].Columns[tipo_campania]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="tipo_campania"
+                      externalMetadataColumnId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_tipo]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[tipo_campania]" />
+                    <inputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].Columns[descuento_promedio]"
+                      cachedDataType="numeric"
+                      cachedName="descuento_promedio"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[valor_descuento_promedio]"
+                      lineageId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output].Columns[descuento_promedio]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[tipo_campania_key]"
+                      dataType="i4"
+                      name="tipo_campania_key" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[tipo_campania_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="tipo_campania_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[descripcion_tipo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="descripcion_tipo" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[valor_descuento_promedio]"
+                      dataType="numeric"
+                      name="valor_descuento_promedio"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input].ExternalColumns[veces_utilizado]"
+                      dataType="i4"
+                      name="veces_utilizado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimTipoCampania\Nuevos Registros DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Nuevos Registros DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimTipoCampania\Nuevos Registros DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimTipoCampania\Nuevos Registros DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimTipoCampania.Paths[Cambios en Datos]"
+              endId="Package\DimTipoCampania\Actualizar Datos DW.Inputs[OLE DB Command Input]"
+              name="Cambios en Datos"
+              startId="Package\DimTipoCampania\Comparar Datos.Outputs[Cambios en Datos]" />
+            <path
+              refId="Package\DimTipoCampania.Paths[Data Conversion Output]"
+              endId="Package\DimTipoCampania\Buscar Registros.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DimTipoCampania\Convertir Datos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimTipoCampania.Paths[Lookup Match Output]"
+              endId="Package\DimTipoCampania\Comparar Datos.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DimTipoCampania.Paths[Lookup No Match Output]"
+              endId="Package\DimTipoCampania\Nuevos Registros DW.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DimTipoCampania\Buscar Registros.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DimTipoCampania.Paths[Salida de origen de ADO NET]"
+              endId="Package\DimTipoCampania\Convertir Datos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DimTipoCampania\Leer Magento.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DimTipoCampania"
+          TopLeft="189,242" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimTipoCampania">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\DimTipoCampania\Nuevos Registros DW"
+          TopLeft="539,512" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DimTipoCampania\Convertir Datos"
+          TopLeft="245.5,182.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\DimTipoCampania\Leer Magento"
+          TopLeft="251,63" />
+        <EdgeLayout
+          Id="Package\DimTipoCampania.Paths[Salida de origen de ADO NET]"
+          TopLeft="323.75,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.5"
+              Start="0,0"
+              End="0,70">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DimTipoCampania\Buscar Registros"
+          TopLeft="247,291" />
+        <EdgeLayout
+          Id="Package\DimTipoCampania.Paths[Data Conversion Output]"
+          TopLeft="325.75,224.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.5"
+              Start="0,0"
+              End="0,59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimTipoCampania.Paths[Lookup No Match Output]"
+          TopLeft="328.5,333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="304,179"
+              Start="0,0"
+              End="304,171.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,85.5"
+                    Point2="0,89.5"
+                    Point3="4,89.5" />
+                  <mssgle:LineSegment
+                    End="300,89.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="300,89.5"
+                    Point2="304,89.5"
+                    Point3="304,93.5" />
+                  <mssgle:LineSegment
+                    End="304,171.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="96.19361328125,94.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DimTipoCampania\Comparar Datos"
+          TopLeft="173,493" />
+        <EdgeLayout
+          Id="Package\DimTipoCampania.Paths[Lookup Match Output]"
+          TopLeft="302.666666666667,333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.6666666666667,160"
+              Start="0,0"
+              End="-49.6666666666667,152.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.9331713244229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.9331713244229"
+                    Point2="0,64.9331713244229"
+                    Point3="-4,64.9331713244229" />
+                  <mssgle:LineSegment
+                    End="-45.6666666666667,64.9331713244229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.6666666666667,64.9331713244229"
+                    Point2="-49.6666666666667,64.9331713244229"
+                    Point3="-49.6666666666667,68.9331713244229" />
+                  <mssgle:LineSegment
+                    End="-49.6666666666667,152.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.0247200520834,69.9331713244229,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\DimTipoCampania\Actualizar Datos DW"
+          TopLeft="159,639" />
+        <EdgeLayout
+          Id="Package\DimTipoCampania.Paths[Cambios en Datos]"
+          TopLeft="251,535">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104"
+              Start="0,0"
+              End="0,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.61009765625,43.37548828125,81.2201953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimTipoCampania\Nuevos Registros DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimTipoCampania\Leer Magento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimTipoCampania\Buscar Registros">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Tipo_Campania]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

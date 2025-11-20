@@ -1,0 +1,1324 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2025 2:35:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIEL"
+  DTS:CreatorName="DANIEL\hedac"
+  DTS:DTSID="{92345FF8-A85B-4F51-B67E-9B065AD9F0F6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{E3D65B6C-2B05-4EC1-B361-B55D727BF67D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9B5D2DB3-64D5-4BCD-B56A-62DC5AED2A97}"
+      DTS:ObjectName="localhost.DW_MARKETING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DW_MARKETING;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{9B5D2DB3-64D5-4BCD-B56A-62DC5AED2A97}localhost.DW_MARKETING;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.magento2.magento]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{1ECF9572-AF9D-4630-825B-84C4D88A2FAE}"
+      DTS:ObjectName="localhost.magento2.magento">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=magento;port=3307;database=magento2;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACW8OGfTeFjN9FK9vwfxHE1yadNcNdiCQ8dEyuag9J8FAAAAAAOgAAAAAIAACAAAAAqSscAKqeeE+SeYpYA36EYmaI9rXDzHUpLuQ8QypZGgSAAAABMOP2aC7tPaezZmqRcdm7Ft2ERe9lHOHEXE6Zs6AvS8UAAAAAT00NwU8m3pEga3IvBrXaTjBoi+r/3ywIkCPBRpA+69pTuJ6OxdDrqCyLy60NjoDg2kMwR0RtRBO/VEWWXGMed</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimMetodoPago"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{50E71698-D657-4D42-B601-DF9E231D1B56}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimMetodoPago"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimMetodoPago\Actualizar Registros DW"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Actualizar Registros DW"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Dim_Metodo_Pago
+SET nombre_metodo_pago = ?, proveedor=?, activo=?
+WHERE metodo_pago_id = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMetodoPago\Actualizar Registros DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].Columns[Copy of nombre_metodo_pago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of nombre_metodo_pago"
+                      externalMetadataColumnId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].Columns[Copy of proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of proveedor"
+                      externalMetadataColumnId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].Columns[Copy of activo]"
+                      cachedDataType="bool"
+                      cachedName="Copy of activo"
+                      externalMetadataColumnId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].Columns[Copy of metodo_pago_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Copy of metodo_pago_id"
+                      externalMetadataColumnId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="bool"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Actualizar Registros DW.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMetodoPago\Buscar Regitros"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Buscar Regitros"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Metodo_Pago]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Metodo_Pago]) [refTable]
+where [refTable].[metodo_pago_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="metodo_pago_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="metodo_pago_id" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nombre_metodo_pago" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="proveedor" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMetodoPago\Buscar Regitros.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input].Columns[Copy of metodo_pago_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Copy of metodo_pago_id"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">metodo_pago_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[nombre_metodo_pago]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[nombre_metodo_pago]"
+                      name="nombre_metodo_pago"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">nombre_metodo_pago</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[proveedor]"
+                      name="proveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">proveedor</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[activo]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[activo]"
+                      name="activo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">activo</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMetodoPago\Comparar Datos"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Comparar Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of nombre_metodo_pago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of nombre_metodo_pago"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of proveedor"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[Copy of activo]"
+                      cachedDataType="bool"
+                      cachedName="Copy of activo"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[nombre_metodo_pago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="nombre_metodo_pago"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[nombre_metodo_pago]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="proveedor"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[proveedor]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input].Columns[activo]"
+                      cachedDataType="bool"
+                      cachedName="activo"
+                      lineageId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[activo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Comparar Datos.Outputs[Cambios en Datos]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Cambios en Datos"
+                  synchronousInputId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]} != #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[nombre_metodo_pago]} || #{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]} != #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[proveedor]} || #{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]} != #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[activo]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Copy of nombre_metodo_pago] != [Buscar Regitros].nombre_metodo_pago || [Copy of proveedor] != [Buscar Regitros].proveedor || [Copy of activo] != [Buscar Regitros].activo</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Comparar Datos.Outputs[Sin Cambios]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sin Cambios"
+                  synchronousInputId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]} == #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[nombre_metodo_pago]} || #{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]} == #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[proveedor]} || #{Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]} == #{Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output].Columns[activo]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Copy of nombre_metodo_pago] == [Buscar Regitros].nombre_metodo_pago || [Copy of proveedor] == [Buscar Regitros].proveedor || [Copy of activo] == [Buscar Regitros].activo</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Comparar Datos.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMetodoPago\Conversion Datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Conversion Datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input].Columns[metodo_pago_id]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="metodo_pago_id"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[metodo_pago_id]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input].Columns[nombre_metodo_pago]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="nombre_metodo_pago"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[nombre_metodo_pago]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input].Columns[proveedor]"
+                      cachedDataType="wstr"
+                      cachedLength="37"
+                      cachedName="proveedor"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[proveedor]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[activo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="40"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]"
+                      name="Copy of metodo_pago_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[metodo_pago_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]"
+                      name="Copy of nombre_metodo_pago"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[nombre_metodo_pago]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]"
+                      name="Copy of proveedor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[proveedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]"
+                      name="Copy of activo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[activo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMetodoPago\Escritura DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Escritura DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Metodo_Pago]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMetodoPago\Escritura DW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].Columns[Copy of metodo_pago_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Copy of metodo_pago_id"
+                      externalMetadataColumnId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[metodo_pago_id]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of metodo_pago_id]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].Columns[Copy of nombre_metodo_pago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of nombre_metodo_pago"
+                      externalMetadataColumnId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[nombre_metodo_pago]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_metodo_pago]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].Columns[Copy of proveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of proveedor"
+                      externalMetadataColumnId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[proveedor]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of proveedor]" />
+                    <inputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].Columns[Copy of activo]"
+                      cachedDataType="bool"
+                      cachedName="Copy of activo"
+                      externalMetadataColumnId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[activo]"
+                      lineageId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[metodo_pago_key]"
+                      dataType="i4"
+                      name="metodo_pago_key" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[metodo_pago_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="metodo_pago_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[nombre_metodo_pago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="nombre_metodo_pago" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[proveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input].ExternalColumns[activo]"
+                      dataType="bool"
+                      name="activo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Escritura DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Escritura DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Escritura DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Escritura DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMetodoPago\Lectura Magento"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Lectura Magento"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    DISTINCT method AS metodo_pago_id,
+    CASE WHEN method = 'checkmo' THEN 'Efectivo contra entrega'
+        WHEN method = 'cashondelivery' THEN 'Cheque contra entrega'
+        WHEN method = 'creditcard' THEN 'Tarjeta de crédito'
+        WHEN method = 'paypal_express' THEN 'PayPal'
+        WHEN method = 'banktransfer' THEN 'Transferencia bancaria'
+        ELSE 'Otro' END AS nombre_metodo_pago,
+    CASE WHEN method = 'checkmo' THEN 'Sin Proveedor'
+        WHEN method = 'cashondelivery' THEN 'Sin Proveedor'
+        WHEN method = 'creditcard' THEN 'Proveedor Tarjeta de Crédito'
+        WHEN method = 'paypal_express' THEN 'PayPal'
+        WHEN method = 'banktransfer' THEN 'Banco Central de Reserva (Tranfer365)'
+        ELSE 'Otro' END AS proveedor,
+    1 AS activo
+FROM sales_order_payment;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMetodoPago\Lectura Magento.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.magento2.magento]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.magento2.magento]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[metodo_pago_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[metodo_pago_id]"
+                      length="128"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[metodo_pago_id]"
+                      name="metodo_pago_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[nombre_metodo_pago]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_metodo_pago]"
+                      length="23"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[nombre_metodo_pago]"
+                      name="nombre_metodo_pago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[proveedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[proveedor]"
+                      length="37"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[proveedor]"
+                      name="proveedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      name="activo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[metodo_pago_id]"
+                      dataType="wstr"
+                      length="128"
+                      name="metodo_pago_id" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_metodo_pago]"
+                      dataType="wstr"
+                      length="23"
+                      name="nombre_metodo_pago" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[proveedor]"
+                      dataType="wstr"
+                      length="37"
+                      name="proveedor" />
+                    <externalMetadataColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      dataType="i8"
+                      name="activo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[metodo_pago_id]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[metodo_pago_id]"
+                      name="metodo_pago_id" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[nombre_metodo_pago]"
+                      dataType="wstr"
+                      length="23"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[nombre_metodo_pago]"
+                      name="nombre_metodo_pago" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[proveedor]"
+                      dataType="wstr"
+                      length="37"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[proveedor]"
+                      name="proveedor" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      dataType="i8"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimMetodoPago.Paths[Cambios en Datos]"
+              endId="Package\DimMetodoPago\Actualizar Registros DW.Inputs[OLE DB Command Input]"
+              name="Cambios en Datos"
+              startId="Package\DimMetodoPago\Comparar Datos.Outputs[Cambios en Datos]" />
+            <path
+              refId="Package\DimMetodoPago.Paths[Data Conversion Output]"
+              endId="Package\DimMetodoPago\Buscar Regitros.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DimMetodoPago\Conversion Datos.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimMetodoPago.Paths[Lookup Match Output]"
+              endId="Package\DimMetodoPago\Comparar Datos.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DimMetodoPago.Paths[Lookup No Match Output]"
+              endId="Package\DimMetodoPago\Escritura DW.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DimMetodoPago\Buscar Regitros.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DimMetodoPago.Paths[Salida de origen de ADO NET]"
+              endId="Package\DimMetodoPago\Conversion Datos.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DimMetodoPago\Lectura Magento.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimMetodoPago"
+          TopLeft="163,169" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimMetodoPago">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DimMetodoPago\Escritura DW"
+          TopLeft="411,463" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DimMetodoPago\Conversion Datos"
+          TopLeft="154,191" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimMetodoPago\Lectura Magento"
+          TopLeft="155,93" />
+        <EdgeLayout
+          Id="Package\DimMetodoPago.Paths[Salida de origen de ADO NET]"
+          TopLeft="236.25,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DimMetodoPago\Buscar Regitros"
+          TopLeft="160,309" />
+        <EdgeLayout
+          Id="Package\DimMetodoPago.Paths[Data Conversion Output]"
+          TopLeft="237.75,233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimMetodoPago.Paths[Lookup No Match Output]"
+          TopLeft="238.5,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="244.5,112"
+              Start="0,0"
+              End="244.5,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52"
+                    Point2="0,56"
+                    Point3="4,56" />
+                  <mssgle:LineSegment
+                    End="240.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="240.5,56"
+                    Point2="244.5,56"
+                    Point3="244.5,60" />
+                  <mssgle:LineSegment
+                    End="244.5,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.44361328125,61,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DimMetodoPago\Comparar Datos"
+          TopLeft="88,459" />
+        <EdgeLayout
+          Id="Package\DimMetodoPago.Paths[Lookup Match Output]"
+          TopLeft="213.666666666667,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.6666666666667,108"
+              Start="0,0"
+              End="-45.6666666666667,100.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8537200504414" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.8537200504414"
+                    Point2="0,43.8537200504414"
+                    Point3="-4,43.8537200504414" />
+                  <mssgle:LineSegment
+                    End="-41.6666666666667,43.8537200504414" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.6666666666667,43.8537200504414"
+                    Point2="-45.6666666666667,43.8537200504414"
+                    Point3="-45.6666666666667,47.8537200504414" />
+                  <mssgle:LineSegment
+                    End="-45.6666666666667,100.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-71.0247200520833,48.8537200504414,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198,42"
+          Id="Package\DimMetodoPago\Actualizar Registros DW"
+          TopLeft="62,589" />
+        <EdgeLayout
+          Id="Package\DimMetodoPago.Paths[Cambios en Datos]"
+          TopLeft="164.5,501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88"
+              Start="0,0"
+              End="0,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.61009765625,35.37548828125,81.2201953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimMetodoPago\Escritura DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimMetodoPago\Lectura Magento">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimMetodoPago\Buscar Regitros">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Metodo_Pago]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

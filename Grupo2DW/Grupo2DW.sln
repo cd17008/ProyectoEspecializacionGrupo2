@@ -1,22 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Grupo2DW", "Grupo2DW\Grupo2DW.dtproj", "{8354AF4E-86D3-9DD0-059A-B0A363748255}"
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Grupo2DW", "Grupo2DW.dtproj", "{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8354AF4E-86D3-9DD0-059A-B0A363748255}.Development|Default.ActiveCfg = Development
-		{8354AF4E-86D3-9DD0-059A-B0A363748255}.Development|Default.Build.0 = Development
+		{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}.Development|Default.ActiveCfg = Development
+		{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1D929C43-8D96-4AF4-8C44-7A74A4AB2B7D}
+		SolutionGuid = {C67F1719-1424-4C7D-A789-DE5FAD332948}
 	EndGlobalSection
 EndGlobal

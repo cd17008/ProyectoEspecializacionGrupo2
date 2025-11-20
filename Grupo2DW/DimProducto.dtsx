@@ -1,0 +1,3364 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2025 2:35:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DANIEL"
+  DTS:CreatorName="DANIEL\hedac"
+  DTS:DTSID="{A0E0809C-C8C7-4A7F-ACEE-7F97A0251E28}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{06FC20B5-FB4C-4B34-9FEB-C69743CF5A1D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Cache Connection Manager]"
+      DTS:CreationName="CACHE"
+      DTS:DTSID="{30C5EDBD-E757-4BB8-8DD9-FE9650BEA7C5}"
+      DTS:ObjectName="Cache Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager>
+          <DTS:CacheColumns>
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="50"
+              DTS:CodePage="1252"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{6BAB26A4-1B84-490E-B672-F9353A67E06D}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="129"
+              DTS:Length="50"
+              DTS:CodePage="1252"
+              DTS:IndexPosition="1"
+              DTS:ObjectName="Code"
+              DTS:DTSID="{AA3372AA-3F38-4839-B0DA-7DA2C6092179}"
+              DTS:CreationName="" />
+          </DTS:CacheColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{73B4C860-50A4-4D9B-B3CC-CCA9ADE550E2}"
+      DTS:ObjectName="localhost.DW_MARKETING">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DW_MARKETING;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{73B4C860-50A4-4D9B-B3CC-CCA9ADE550E2}localhost.DW_MARKETING;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.magento2.magento]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=9.5.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{F15452F1-CE83-48B0-B172-4F162BAC9B3E}"
+      DTS:ObjectName="localhost.magento2.magento">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=localhost;user id=magento;port=3307;database=magento2;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACan6O/fPv1hC0QGjZc6o6RCufOeNVXTD0zYc/hivdK4gAAAAAOgAAAAAIAACAAAADfaR7AeioUP12DeNMB7UXJWzA/zr+bekVnMgukvgJhOiAAAADQY8El62rlHBixDc0xyxRqwhT+x8/CaVX+AXAQSZxGPkAAAADOn7efiu+tKPPGNBRMggrAMe9afysHQUqCMZt0ij00x9Xuz1EEbiG30GhkgiwKL+RnuGHkVIebBFEj/ltSI1w2</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Paises]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B8AFF441-A4D4-4E9F-8832-40B69F76DFC5}"
+      DTS:ObjectName="Paises">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="17418"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\hedac\OneDrive - FIA_UES\UES\CICLO 11\TBS\Ingenieria de Datos-2025\Proyecto\ProyectoEspecializacionGrupo2\paises.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{B97E7685-611C-4580-B9C2-D4D26F652C5E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Code"
+              DTS:DTSID="{33A9B812-A573-4678-A706-D8E55E5366C0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0A1409D9-EF44-426E-A57B-C574DA9EBC12}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ETL\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[producto_id]"
+                      cachedDataType="ui4"
+                      cachedName="producto_id"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="sku"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[nombre_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_producto"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[subcategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subcategoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="precio_base"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[pais_origen]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais_origen"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[fecha_fin]"
+                      cachedDataType="nText"
+                      cachedName="fecha_fin"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion.Inputs[Data Conversion Input].Columns[costo]"
+                      cachedDataType="numeric"
+                      cachedName="costo"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of producto_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of producto_id]"
+                      name="Copy of producto_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      name="Copy of sku"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_producto]"
+                      name="Copy of nombre_producto"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of descripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of descripcion]"
+                      name="Copy of descripcion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of categoria]"
+                      name="Copy of categoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subcategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subcategoria]"
+                      name="Copy of subcategoria"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of precio_base]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of precio_base]"
+                      name="Copy of precio_base"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]"
+                      name="Copy of pais_origen"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_inicio]"
+                      name="Copy of fecha_inicio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_fin]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_fin]"
+                      name="Copy of fecha_fin"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activo]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activo]"
+                      name="Copy of activo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of costo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of costo]"
+                      name="Copy of costo"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of producto_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of producto_id"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of sku"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of nombre_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of nombre_producto"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copy of descripcion"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of categoria"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of subcategoria"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of precio_base"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_inicio"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Name_Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name_Pais"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of activo]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of activo"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]" />
+                    <inputColumn
+                      refId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input].Columns[Copy of costo]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of costo"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[idCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[idCONV]"
+                      name="idCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[skuCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[skuCONV]"
+                      name="skuCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[nombreCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[nombreCONV]"
+                      name="nombreCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[descripcionCONV]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[descripcionCONV]"
+                      name="descripcionCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[categoriaCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[categoriaCONV]"
+                      name="categoriaCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[subcategoriaCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[subcategoriaCONV]"
+                      name="subcategoriaCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[precio_baseCONV]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[precio_baseCONV]"
+                      name="precio_baseCONV"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[fecha_inicioCONV]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[fecha_inicioCONV]"
+                      name="fecha_inicioCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[name_paisCONV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[name_paisCONV]"
+                      name="name_paisCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[activoCONV]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[activoCONV]"
+                      name="activoCONV"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[costoCONV]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[costoCONV]"
+                      name="costoCONV"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[Name_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[Name_Pais]"
+                      name="Name_Pais"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Pais Desconocido"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Pais Desconocido"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[fin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[fin]"
+                      name="fin"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from () [refTable]
+where [refTable].[Code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Lookup.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache Connection Manager]"
+                  description="Connection manager used to access lookup data."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Lookup.Inputs[Lookup Input].Columns[Copy of pais_origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of pais_origen"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Code</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\ETL\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Lookup.Outputs[Lookup Match Output].Columns[Name_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Match Output].Columns[Name_Pais]"
+                      name="Name_Pais"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Name</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\ETL\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ETL\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\ETL\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_MARKETING]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[idCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="idCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[idCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[skuCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="skuCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[skuCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nombreCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="nombreCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_producto]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[nombreCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[descripcionCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="descripcionCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[descripcionCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[categoriaCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="categoriaCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[categoriaCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[subcategoriaCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="subcategoriaCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[subcategoria]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[subcategoriaCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[precio_baseCONV]"
+                      cachedDataType="numeric"
+                      cachedName="precio_baseCONV"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio_base]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[precio_baseCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name_paisCONV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="name_paisCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pais_origen]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[name_paisCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fecha_inicioCONV]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicioCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[fecha_inicioCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fin"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
+                      lineageId="Package\ETL\Derived Column 1.Outputs[Derived Column Output].Columns[fin]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[activoCONV]"
+                      cachedDataType="ui8"
+                      cachedName="activoCONV"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[activo]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[activoCONV]" />
+                    <inputColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[costoCONV]"
+                      cachedDataType="numeric"
+                      cachedName="costoCONV"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[costo]"
+                      lineageId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output].Columns[costoCONV]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producto_key]"
+                      dataType="i4"
+                      name="producto_key" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producto_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="producto_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="nombre_producto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[descripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[subcategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="subcategoria" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[precio_base]"
+                      dataType="numeric"
+                      name="precio_base"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pais_origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pais_origen" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_inicio]"
+                      dataType="wstr"
+                      length="10"
+                      name="fecha_inicio" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha_fin]"
+                      dataType="wstr"
+                      length="10"
+                      name="fecha_fin" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[activo]"
+                      dataType="bool"
+                      name="activo" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[costo]"
+                      dataType="numeric"
+                      name="costo"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    producto.entity_id AS producto_id,
+    producto.sku,
+    nombre_producto.value AS nombre_producto,
+    REPLACE(REPLACE(descripcion_producto.value,'&lt;p&gt;', ''), '&lt;/p&gt;', '') AS descripcion,
+    nombre_subcategoria.value AS categoria,
+    nombre_categoria.value AS subcategoria,
+    precio_producto.price AS precio_base,
+    costo.value AS costo,
+    pais_origen.value AS pais_origen,
+    NOW() AS fecha_inicio,
+    NULL AS fecha_fin,
+    1 AS activo
+FROM catalog_product_entity producto
+INNER JOIN catalog_product_entity_varchar nombre_producto
+    ON producto.entity_id = nombre_producto.entity_id AND nombre_producto.attribute_id = 73
+INNER JOIN catalog_product_entity_text descripcion_producto
+    ON producto.entity_id = descripcion_producto.entity_id AND descripcion_producto.attribute_id = 76
+INNER JOIN catalog_category_product categoria_producto
+    ON producto.entity_id = categoria_producto.product_id
+INNER JOIN catalog_category_entity categoria
+    ON categoria_producto.category_id = categoria.entity_id AND categoria.children_count = 0
+INNER JOIN catalog_category_entity_varchar nombre_categoria
+    ON categoria.entity_id = nombre_categoria.entity_id AND nombre_categoria.attribute_id = 45
+LEFT JOIN (
+    SELECT 
+        ccp.product_id,
+        MIN(cc.parent_id) AS subcategoria_id
+    FROM catalog_category_product ccp
+    INNER JOIN catalog_category_entity cc ON ccp.category_id = cc.entity_id
+    WHERE cc.children_count = 0
+    GROUP BY ccp.product_id
+) subcat ON producto.entity_id = subcat.product_id
+LEFT JOIN catalog_category_entity subcategoria
+    ON subcat.subcategoria_id = subcategoria.entity_id
+LEFT JOIN catalog_category_entity_varchar nombre_subcategoria
+    ON subcategoria.entity_id = nombre_subcategoria.entity_id AND nombre_subcategoria.attribute_id = 45
+INNER JOIN catalog_product_index_price precio_producto
+    ON producto.entity_id = precio_producto.entity_id
+INNER JOIN catalog_product_entity_varchar pais_origen
+    ON producto.entity_id = pais_origen.entity_id AND pais_origen.attribute_id = 114
+LEFT JOIN catalog_product_entity_decimal costo
+    ON costo.entity_id = producto.entity_id AND costo.attribute_id = 81
+GROUP BY 
+    producto.entity_id, 
+    producto.sku,
+    nombre_producto.value,
+    descripcion_producto.value,
+    nombre_categoria.value,
+    nombre_subcategoria.value,
+    precio_producto.price,
+    pais_origen.value,
+    costo.value
+ORDER BY producto.entity_id ASC;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ETL\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.magento2.magento]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.magento2.magento]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[producto_id]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]"
+                      name="producto_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[sku]"
+                      length="64"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]"
+                      name="sku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_producto]"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]"
+                      name="nombre_producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[subcategoria]"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]"
+                      name="subcategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_base]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]"
+                      name="precio_base"
+                      precision="20"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo]"
+                      name="costo"
+                      precision="20"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[pais_origen]"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]"
+                      name="pais_origen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_inicio]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]"
+                      name="fecha_inicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_fin]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]"
+                      name="fecha_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      name="activo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[producto_id]"
+                      dataType="ui4"
+                      name="producto_id" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[sku]"
+                      dataType="wstr"
+                      length="64"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[nombre_producto]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre_producto" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                      dataType="nText"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="categoria" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="subcategoria" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_base]"
+                      dataType="numeric"
+                      name="precio_base"
+                      precision="20"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo]"
+                      dataType="numeric"
+                      name="costo"
+                      precision="20"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[pais_origen]"
+                      dataType="wstr"
+                      length="255"
+                      name="pais_origen" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      name="fecha_inicio" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_fin]"
+                      dataType="nText"
+                      name="fecha_fin" />
+                    <externalMetadataColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      dataType="i8"
+                      name="activo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[producto_id]"
+                      dataType="ui4"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[producto_id]"
+                      name="producto_id" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[sku]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[nombre_producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[nombre_producto]"
+                      name="nombre_producto" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[subcategoria]"
+                      name="subcategoria" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[precio_base]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[precio_base]"
+                      name="precio_base"
+                      precision="20"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo]"
+                      name="costo"
+                      precision="20"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[pais_origen]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[pais_origen]"
+                      name="pais_origen" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fecha_inicio]"
+                      name="fecha_inicio" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fecha_fin]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fecha_fin]"
+                      name="fecha_fin" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      dataType="i8"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\ETL\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[producto_id]"
+                      cachedDataType="ui4"
+                      cachedName="producto_id"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="sku"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[nombre_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_producto"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[subcategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subcategoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="precio_base"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[pais_origen]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais_origen"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[fecha_fin]"
+                      cachedDataType="nText"
+                      cachedName="fecha_fin"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_fin]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of producto_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of producto_id"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of sku"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of nombre_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of nombre_producto"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copy of descripcion"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of categoria"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of subcategoria"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of precio_base"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of pais_origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of pais_origen"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_inicio"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of fecha_fin]"
+                      cachedDataType="nText"
+                      cachedName="Copy of fecha_fin"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_fin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_fin]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of activo]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of activo"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Name_Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name_Pais"
+                      lineageId="Package\ETL\Derived Column.Outputs[Derived Column Output].Columns[Name_Pais]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 1].Columns[Copy of costo]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of costo"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[producto_id]"
+                      cachedDataType="ui4"
+                      cachedName="producto_id"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="sku"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[nombre_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_producto"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[subcategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subcategoria"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="precio_base"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[pais_origen]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais_origen"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[fecha_fin]"
+                      cachedDataType="nText"
+                      cachedName="fecha_fin"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fecha_fin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_fin]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of producto_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of producto_id"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of sku"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of nombre_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of nombre_producto"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copy of descripcion"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of categoria"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of subcategoria"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of precio_base"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of pais_origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of pais_origen"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_inicio"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of fecha_fin]"
+                      cachedDataType="nText"
+                      cachedName="Copy of fecha_fin"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fecha_fin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_fin]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of activo]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of activo"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Name_Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name_Pais"
+                      lineageId="Package\ETL\Lookup.Outputs[Lookup Match Output].Columns[Name_Pais]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Union All.Inputs[Union All Input 2].Columns[Copy of costo]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of costo"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[producto_id]"
+                      dataType="ui4"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[producto_id]"
+                      name="producto_id" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[sku]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[nombre_producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[nombre_producto]"
+                      name="nombre_producto" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[descripcion]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[subcategoria]"
+                      name="subcategoria" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[precio_base]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[precio_base]"
+                      name="precio_base"
+                      precision="20"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[pais_origen]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[pais_origen]"
+                      name="pais_origen" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_inicio]"
+                      name="fecha_inicio" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_fin]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[fecha_fin]"
+                      name="fecha_fin" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[activo]"
+                      dataType="i8"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of producto_id]"
+                      name="Copy of producto_id" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of sku]"
+                      name="Copy of sku" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of nombre_producto]"
+                      name="Copy of nombre_producto" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of descripcion]"
+                      name="Copy of descripcion" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of categoria]"
+                      name="Copy of categoria" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of subcategoria]"
+                      name="Copy of subcategoria" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of precio_base]"
+                      name="Copy of precio_base"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of pais_origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of pais_origen]"
+                      name="Copy of pais_origen" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]"
+                      name="Copy of fecha_inicio" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_fin]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of fecha_fin]"
+                      name="Copy of fecha_fin" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]"
+                      dataType="ui8"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of activo]"
+                      name="Copy of activo" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Name_Pais]"
+                      name="Name_Pais" />
+                    <outputColumn
+                      refId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Union All.Outputs[Union All Output 1].Columns[Copy of costo]"
+                      name="Copy of costo"
+                      precision="10"
+                      scale="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ETL.Paths[Data Conversion Output]"
+              endId="Package\ETL\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\ETL\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ETL.Paths[Data Conversion Output1]"
+              endId="Package\ETL\Derived Column 1.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\ETL\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ETL.Paths[Derived Column Output]"
+              endId="Package\ETL\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\ETL\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL.Paths[Derived Column Output1]"
+              endId="Package\ETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\ETL\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ETL.Paths[Lookup Error Output]"
+              endId="Package\ETL\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\ETL\Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\ETL.Paths[Lookup Match Output]"
+              endId="Package\ETL\Union All.Inputs[Union All Input 2]"
+              name="Lookup Match Output"
+              startId="Package\ETL\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\ETL.Paths[Salida de origen de ADO NET]"
+              endId="Package\ETL\Data Conversion.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\ETL\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\ETL.Paths[Union All Output 1]"
+              endId="Package\ETL\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Union All Output 1"
+              startId="Package\ETL\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Lectura Paises"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{056C3CFD-E269-47BA-84B2-B3884110A036}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Lectura Paises"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Lectura Paises\Cache Transform"
+              componentClassID="Microsoft.Cache"
+              contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+              name="Cache Transform"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Lectura Paises\Cache Transform.Connections[CacheConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Cache Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Cache Connection Manager]"
+                  description="The connection used to access the cache."
+                  name="CacheConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Lectura Paises\Cache Transform.Inputs[Cache Input]"
+                  hasSideEffects="true"
+                  name="Cache Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Lectura Paises\Cache Transform.Inputs[Cache Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Name</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Lectura Paises\Cache Transform.Inputs[Cache Input].Columns[Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Code"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Code]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="The cache column associated with the input column."
+                          name="CacheColumnName">Code</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Lectura Paises\Cache Transform.Outputs[Cache Output]"
+                  name="Cache Output"
+                  synchronousInputId="Package\Lectura Paises\Cache Transform.Inputs[Cache Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Lectura Paises\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="17418"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Lectura Paises\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Paises]"
+                  connectionManagerRefId="Package.ConnectionManagers[Paises]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Code]"
+                      length="50"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Lectura Paises.Paths[Flat File Source Output]"
+              endId="Package\Lectura Paises\Cache Transform.Inputs[Cache Input]"
+              name="Flat File Source Output"
+              startId="Package\Lectura Paises\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{A6563AE5-8D09-46E5-A253-427354C5EDDD}"
+      DTS:From="Package\Lectura Paises"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\ETL" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="99,42"
+          Id="Package\ETL"
+          TopLeft="144,240" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Lectura Paises"
+          TopLeft="108,115" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="184,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,83"
+              Start="0,0"
+              End="9.5,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="5.5,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,41.5"
+                    Point2="9.5,41.5"
+                    Point3="9.5,45.5" />
+                  <mssgle:LineSegment
+                    End="9.5,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\ETL\Union All"
+          TopLeft="263,630" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\ETL\Lookup"
+          TopLeft="269,413" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\ETL\Derived Column"
+          TopLeft="410,545" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\ETL\Origen de ADO NET"
+          TopLeft="229,123" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\ETL\OLE DB Destination"
+          TopLeft="233,919" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\ETL\Derived Column 1"
+          TopLeft="243,822" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\ETL\Data Conversion"
+          TopLeft="243,265" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\ETL\Data Conversion 1"
+          TopLeft="237,737" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Error Output]"
+          TopLeft="326.5,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.5,90"
+              Start="0,0"
+              End="162.5,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="4,45" />
+                  <mssgle:LineSegment
+                    End="158.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.5,45"
+                    Point2="162.5,45"
+                    Point3="162.5,49" />
+                  <mssgle:LineSegment
+                    End="162.5,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="35.38361328125,50,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output1]"
+          TopLeft="324,864">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output]"
+          TopLeft="489,587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-145.333333333333,43"
+              Start="0,0"
+              End="-145.333333333333,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4686998394863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4686998394863"
+                    Point2="0,25.4686998394863"
+                    Point3="-4,25.4686998394863" />
+                  <mssgle:LineSegment
+                    End="-141.333333333333,25.4686998394863" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-141.333333333333,25.4686998394863"
+                    Point2="-145.333333333333,25.4686998394863"
+                    Point3="-145.333333333333,29.4686998394863" />
+                  <mssgle:LineSegment
+                    End="-145.333333333333,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Data Conversion Output1]"
+          TopLeft="324.25,779">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Data Conversion Output]"
+          TopLeft="325,307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106"
+              Start="0,0"
+              End="0,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Union All Output 1]"
+          TopLeft="323.25,672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de origen de ADO NET]"
+          TopLeft="321,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100"
+              Start="0,0"
+              End="0,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Match Output]"
+          TopLeft="307,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,175"
+              Start="0,0"
+              End="0,167.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,167.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,77.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Lectura Paises">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Lectura Paises\Flat File Source"
+          TopLeft="204,202" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Lectura Paises\Cache Transform"
+          TopLeft="208,342" />
+        <EdgeLayout
+          Id="Package\Lectura Paises.Paths[Flat File Source Output]"
+          TopLeft="282,244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,98"
+              Start="0,0"
+              End="8,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="4,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,49"
+                    Point2="8,49"
+                    Point3="8,53" />
+                  <mssgle:LineSegment
+                    End="8,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
