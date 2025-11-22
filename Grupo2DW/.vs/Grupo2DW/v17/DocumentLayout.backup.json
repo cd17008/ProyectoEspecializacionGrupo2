@@ -3,8 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\Orquestador.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:Orquestador.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimProducto.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimProducto.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimOrden.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimOrden.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoPago.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimMetodoPago.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoEnvio.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimMetodoEnvio.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimDireccion.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimDireccion.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCliente.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
       "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimCliente.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCampania.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimCampania.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimTipoCampania.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{E1D6D7BD-54CA-1B2F-8557-87D4C3D87C42}|Grupo2DW.dtproj|solutionrelative:DimTipoCampania.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,18 +46,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "DimCliente.dtsx [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCliente.dtsx",
               "RelativeDocumentMoniker": "DimCliente.dtsx",
               "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCliente.dtsx [Dise\u00F1o]",
               "RelativeToolTip": "DimCliente.dtsx [Dise\u00F1o]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-11-21T09:42:06.442Z",
+              "WhenOpened": "2025-11-22T03:49:40.544Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DimProducto.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimProducto.dtsx",
+              "RelativeDocumentMoniker": "DimProducto.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimProducto.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimProducto.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:45:42.358Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DimOrden.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimOrden.dtsx",
+              "RelativeDocumentMoniker": "DimOrden.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimOrden.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimOrden.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:44:34.136Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DimMetodoPago.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoPago.dtsx",
+              "RelativeDocumentMoniker": "DimMetodoPago.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoPago.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimMetodoPago.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:43:52.391Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DimMetodoEnvio.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoEnvio.dtsx",
+              "RelativeDocumentMoniker": "DimMetodoEnvio.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimMetodoEnvio.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimMetodoEnvio.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:42:54.586Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DimDireccion.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimDireccion.dtsx",
+              "RelativeDocumentMoniker": "DimDireccion.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimDireccion.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimDireccion.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:39:02.017Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DimCampania.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCampania.dtsx",
+              "RelativeDocumentMoniker": "DimCampania.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimCampania.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimCampania.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:38:04.396Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DimTipoCampania.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimTipoCampania.dtsx",
+              "RelativeDocumentMoniker": "DimTipoCampania.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\DimTipoCampania.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "DimTipoCampania.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:35:59.029Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Orquestador.dtsx [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\Orquestador.dtsx",
+              "RelativeDocumentMoniker": "Orquestador.dtsx",
+              "ToolTip": "C:\\Users\\hedac\\OneDrive - FIA_UES\\UES\\CICLO 11\\TBS\\Ingenieria de Datos-2025\\Proyecto\\ProyectoEspecializacionGrupo2\\Grupo2DW\\Orquestador.dtsx [Dise\u00F1o]",
+              "RelativeToolTip": "Orquestador.dtsx [Dise\u00F1o]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-11-22T03:27:42.021Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

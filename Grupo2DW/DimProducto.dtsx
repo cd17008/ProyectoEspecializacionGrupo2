@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{ADBE57CC-942B-493B-A847-5952FA165AEA}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{A130CA70-1AAB-420A-91D4-EFDC2BC95B70}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -66,7 +66,7 @@
           <DTS:Password
             DTS:Name="password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABMjBHtk0NAGV+lXgDjkYUG6aRaA09OR8nL/N4TgI1sAgAAAAAOgAAAAAIAACAAAACShGNv8bun6KkY1/SgJ6SkXvRCN4aJiq10TVcerM6t2yAAAABQxSjZSTS47SJO40Alm+jgQoArdYRPIfjwGFVy6YFyiEAAAAAKL1cm4bOI/6pz2JjU/+blR3/xvR9Acj7J5mJjT/feGrxnwvJEGjZ5s4Jr4U+60IIBAU6QBFgVVRa+XS1Dc5tu</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABmeJHw8XQlyDBRjOb+Momh4ZS1z8nILtWgujuyVFLE8wAAAAAOgAAAAAIAACAAAACzppXrfUpVobl/EMnh00XpgxbeWZw0JGwJ9UGU9U6M5CAAAABcqmf8oafFaqL0PxRWp7FE5UtKTix22NyHVAdHCRsZ20AAAABbDVjmZ5hBYKnKL9BeAnkS5oxR3TNt6COVkkoVwcIaFP1u/yS3zlbObNF5qZAMftIoo+FnRhFfCgjdQOHUkGpV</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -109,7 +109,71 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E2AC11B-1E19-479E-9A8B-650BCC13B935}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Errores">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A2023578-E8E6-4867-B9CC-0B2CB7696627}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Leidos">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34B1BD09-D46E-4F8E-B327-ABF64638D88D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PorcentajeCambios">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{612867DF-E97D-4EB0-9B99-62F41F67DC96}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PorcentajeErrores">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6BD8FD4D-34E2-4A8D-818F-5FD0EF215AEA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SCD1">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9BB50EDD-A748-404B-AF80-E511382E2A23}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SCD2">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{620B5E09-3AE7-48E0-9883-A76B1E60CDF5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SinCambios">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\ETL"
@@ -506,7 +570,7 @@ where [refTable].[Code] = ?</property>
                       length="50"
                       lineageId="Package\ETL\Buscar Nombre Pais.Outputs[Lookup Match Output].Columns[nombre_pais]"
                       name="nombre_pais"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -606,7 +670,7 @@ where [refTable].[producto_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\ETL\481:invalid};</property>
+                  name="ParameterMap">#{Package\ETL\2070:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -667,7 +731,7 @@ where [refTable].[producto_id] = ?</property>
                       length="150"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[nombre_productoDW]"
                       name="nombre_productoDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -682,7 +746,7 @@ where [refTable].[producto_id] = ?</property>
                       errorOrTruncationOperation="Copy Column"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[descripcionDW]"
                       name="descripcionDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -698,7 +762,7 @@ where [refTable].[producto_id] = ?</property>
                       length="100"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[categoriaDW]"
                       name="categoriaDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -714,7 +778,7 @@ where [refTable].[producto_id] = ?</property>
                       length="100"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[subcategoriaDW]"
                       name="subcategoriaDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -730,7 +794,7 @@ where [refTable].[producto_id] = ?</property>
                       name="precio_baseDW"
                       precision="10"
                       scale="2"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -746,7 +810,7 @@ where [refTable].[producto_id] = ?</property>
                       name="costoDW"
                       precision="10"
                       scale="2"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -762,7 +826,7 @@ where [refTable].[producto_id] = ?</property>
                       length="50"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[pais_origenDW]"
                       name="pais_origenDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -776,7 +840,7 @@ where [refTable].[producto_id] = ?</property>
                       errorOrTruncationOperation="Copy Column"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[fecha_inicioDW]"
                       name="fecha_inicioDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -790,7 +854,7 @@ where [refTable].[producto_id] = ?</property>
                       errorOrTruncationOperation="Copy Column"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[fecha_finDW]"
                       name="fecha_finDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -804,7 +868,7 @@ where [refTable].[producto_id] = ?</property>
                       errorOrTruncationOperation="Copy Column"
                       lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Match Output].Columns[activoDW]"
                       name="activoDW"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1084,6 +1148,151 @@ where [refTable].[producto_id] = ?</property>
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Contar Errores"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar Errores">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Errores</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Contar Errores.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Contar Errores.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\ETL\Contar Errores.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Contar Registros"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar Registros">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Leidos</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Contar Registros.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Contar Registros.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\ETL\Contar Registros.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Contar SCD1"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar SCD1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::SCD1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Contar SCD1.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Contar SCD1.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\ETL\Contar SCD1.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Contar SCD2"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar SCD2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::SCD2</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Contar SCD2.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Contar SCD2.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\ETL\Contar SCD2.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ETL\Contar Sin Cambios"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Contar Sin Cambios">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::SinCambios</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ETL\Contar Sin Cambios.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Contar Sin Cambios.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\ETL\Contar Sin Cambios.Inputs[Row Count Input 1]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
@@ -2503,6 +2712,869 @@ ORDER BY producto.entity_id ASC;</property>
               </outputs>
             </component>
             <component
+              refId="Package\ETL\Unir Errores"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Unir Errores"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\ETL\Unir Errores.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[producto_id]"
+                      cachedDataType="ui4"
+                      cachedName="producto_id"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="sku"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[nombre_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_producto"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[subcategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subcategoria"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="precio_base"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[costo]"
+                      cachedDataType="numeric"
+                      cachedName="costo"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[costo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[pais_origen]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais_origen"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of producto_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of producto_id"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of sku"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of nombre_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of nombre_producto"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copy of descripcion"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of categoria"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of subcategoria"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of precio_base"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of pais_origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of pais_origen"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_inicio"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of activo]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of activo"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[Copy of costo]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of costo"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Conversion Datos.Outputs[Data Conversion Output].Columns[Copy of costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of costo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\ETL\Buscar Nombre Pais.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\ETL\Buscar Nombre Pais.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Unir Errores.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[producto_id]"
+                      cachedDataType="ui4"
+                      cachedName="producto_id"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="sku"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[nombre_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_producto"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[descripcion]"
+                      cachedDataType="nText"
+                      cachedName="descripcion"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[categoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="categoria"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[subcategoria]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subcategoria"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="precio_base"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[costo]"
+                      cachedDataType="numeric"
+                      cachedName="costo"
+                      cachedPrecision="20"
+                      cachedScale="6"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[costo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[pais_origen]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="pais_origen"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_inicio"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[activo]"
+                      cachedDataType="i8"
+                      cachedName="activo"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of producto_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of producto_id"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of producto_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of producto_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of sku"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of nombre_producto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of nombre_producto"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of nombre_producto]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of nombre_producto]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of descripcion]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copy of descripcion"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of descripcion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of descripcion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of categoria"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of categoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of categoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of subcategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of subcategoria"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of subcategoria]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of subcategoria]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of precio_base]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of precio_base"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of precio_base]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of precio_base]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of pais_origen]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of pais_origen"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of pais_origen]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of pais_origen]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of fecha_inicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of fecha_inicio"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of activo]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of activo"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[Copy of costo]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of costo"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\ETL\Unir Registros.Outputs[Union All Output 1].Columns[Copy of costo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of costo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ETL\Unir Errores.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\ETL\Buscar Registros DW.Outputs[Lookup Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ETL\Unir Errores.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ETL\Unir Errores.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[producto_id]"
+                      dataType="ui4"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[producto_id]"
+                      name="producto_id" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[sku]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[nombre_producto]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[nombre_producto]"
+                      name="nombre_producto" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[descripcion]"
+                      dataType="nText"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[subcategoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[subcategoria]"
+                      name="subcategoria" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[precio_base]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[precio_base]"
+                      name="precio_base"
+                      precision="20"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[costo]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[costo]"
+                      name="costo"
+                      precision="20"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[pais_origen]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[pais_origen]"
+                      name="pais_origen" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[fecha_inicio]"
+                      name="fecha_inicio" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[activo]"
+                      dataType="i8"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of producto_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of producto_id]"
+                      name="Copy of producto_id" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of sku]"
+                      name="Copy of sku" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of nombre_producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of nombre_producto]"
+                      name="Copy of nombre_producto" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of descripcion]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of descripcion]"
+                      name="Copy of descripcion" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of categoria]"
+                      name="Copy of categoria" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of subcategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of subcategoria]"
+                      name="Copy of subcategoria" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of precio_base]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of precio_base]"
+                      name="Copy of precio_base"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of pais_origen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of pais_origen]"
+                      name="Copy of pais_origen" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of fecha_inicio]"
+                      name="Copy of fecha_inicio" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of activo]"
+                      dataType="ui8"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of activo]"
+                      name="Copy of activo" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of costo]"
+                      dataType="numeric"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[Copy of costo]"
+                      name="Copy of costo"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ETL\Unir Errores.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\ETL\Unir Registros"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -3358,6 +4430,16 @@ ORDER BY producto.entity_id ASC;</property>
               name="Derived Column Output"
               startId="Package\ETL\Fecha_fin NULL.Outputs[Derived Column Output]" />
             <path
+              refId="Package\ETL.Paths[Lookup Error Output]"
+              endId="Package\ETL\Unir Errores.Inputs[Union All Input 2]"
+              name="Lookup Error Output"
+              startId="Package\ETL\Buscar Registros DW.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\ETL.Paths[Lookup Error Output1]"
+              endId="Package\ETL\Unir Errores.Inputs[Union All Input 1]"
+              name="Lookup Error Output"
+              startId="Package\ETL\Buscar Nombre Pais.Outputs[Lookup Error Output]" />
+            <path
               refId="Package\ETL.Paths[Lookup Match Output]"
               endId="Package\ETL\Comparar Datos.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
@@ -3388,8 +4470,23 @@ ORDER BY producto.entity_id ASC;</property>
               name="Multicast Output 2"
               startId="Package\ETL\SCD 2.Outputs[Multicast Output 2]" />
             <path
-              refId="Package\ETL.Paths[Salida de origen de ADO NET]"
+              refId="Package\ETL.Paths[OLE DB Command Output]"
+              endId="Package\ETL\Contar SCD2.Inputs[Row Count Input 1]"
+              name="OLE DB Command Output"
+              startId="Package\ETL\Actualizar SCD 2.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\ETL.Paths[OLE DB Command Output1]"
+              endId="Package\ETL\Contar SCD1.Inputs[Row Count Input 1]"
+              name="OLE DB Command Output"
+              startId="Package\ETL\Actualizar Datos.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\ETL.Paths[Row Count Output 1]"
               endId="Package\ETL\Conversion Datos.Inputs[Data Conversion Input]"
+              name="Row Count Output 1"
+              startId="Package\ETL\Contar Registros.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\ETL.Paths[Salida de origen de ADO NET]"
+              endId="Package\ETL\Contar Registros.Inputs[Row Count Input 1]"
               name="Salida de origen de ADO NET"
               startId="Package\ETL\Lectura Magento.Outputs[Salida de origen de ADO NET]" />
             <path
@@ -3403,10 +4500,20 @@ ORDER BY producto.entity_id ASC;</property>
               name="SCD 2"
               startId="Package\ETL\Comparar Datos.Outputs[SCD 2]" />
             <path
+              refId="Package\ETL.Paths[Sin Cambios]"
+              endId="Package\ETL\Contar Sin Cambios.Inputs[Row Count Input 1]"
+              name="Sin Cambios"
+              startId="Package\ETL\Comparar Datos.Outputs[Sin Cambios]" />
+            <path
               refId="Package\ETL.Paths[Union All Output 1]"
               endId="Package\ETL\Fecha_fin NULL.Inputs[Derived Column Input]"
               name="Union All Output 1"
               startId="Package\ETL\Unir Registros.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\ETL.Paths[Union All Output 11]"
+              endId="Package\ETL\Contar Errores.Inputs[Row Count Input 1]"
+              name="Union All Output 1"
+              startId="Package\ETL\Unir Errores.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3697,226 +4804,154 @@ ORDER BY producto.entity_id ASC;</property>
     design-time-name="Package\ETL">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\ETL\Contar SCD1"
+          TopLeft="159,954" />
         <NodeLayout
           Size="161,42"
           Id="Package\ETL\Lectura Magento"
-          TopLeft="223,24" />
+          TopLeft="310,3" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\ETL\Conversion Datos"
-          TopLeft="215,102" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Salida de origen de ADO NET]"
-          TopLeft="300.75,66">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36"
-              Start="0,0"
-              End="0,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\ETL\Buscar Nombre Pais"
-          TopLeft="207,194" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Data Conversion Output]"
-          TopLeft="297.5,144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50"
-              Start="0,0"
-              End="0,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\ETL\Pais Desconocido"
-          TopLeft="378,274" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Lookup No Match Output]"
-          TopLeft="325.666666666667,236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="135.833333333333,38"
-              Start="0,0"
-              End="135.833333333333,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.4008810572687" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.4008810572687"
-                    Point2="0,15.4008810572687"
-                    Point3="4,15.4008810572687" />
-                  <mssgle:LineSegment
-                    End="131.833333333333,15.4008810572687" />
-                  <mssgle:CubicBezierSegment
-                    Point1="131.833333333333,15.4008810572687"
-                    Point2="135.833333333333,15.4008810572687"
-                    Point3="135.833333333333,19.4008810572687" />
-                  <mssgle:LineSegment
-                    End="135.833333333333,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="12.1102799479167,20.4008810572687,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="184,42"
-          Id="Package\ETL\Buscar Registros DW"
-          TopLeft="214,532" />
-        <NodeLayout
-          Size="187,42"
-          Id="Package\ETL\Nuevos Registros DW"
-          TopLeft="539,613" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Lookup No Match Output1]"
-          TopLeft="306,574">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="326.5,39"
-              Start="0,0"
-              End="326.5,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.5"
-                    Point2="0,19.5"
-                    Point3="4,19.5" />
-                  <mssgle:LineSegment
-                    End="322.5,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="322.5,19.5"
-                    Point2="326.5,19.5"
-                    Point3="326.5,23.5" />
-                  <mssgle:LineSegment
-                    End="326.5,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="107.44361328125,24.5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="161,42"
+          Id="Package\ETL\Contar Registros"
+          TopLeft="305,109" />
         <NodeLayout
           Size="160,42"
           Id="Package\ETL\Comparar Datos"
-          TopLeft="189,657" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[Lookup Match Output]"
-          TopLeft="272.833333333333,574">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,83"
-              Start="0,0"
-              End="0,75.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,75.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,31.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="285,772" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\ETL\Actualizar Datos"
-          TopLeft="90,753" />
+          Size="180,42"
+          Id="Package\ETL\Buscar Nombre Pais"
+          TopLeft="303,309" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\ETL\Registros SCD 2"
-          TopLeft="449,823" />
-        <EdgeLayout
-          Id="Package\ETL.Paths[SCD 1]"
-          TopLeft="269,699">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-99.5,54"
-              Start="0,0"
-              End="-99.5,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="-4,27" />
-                  <mssgle:LineSegment
-                    End="-95.5,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-95.5,27"
-                    Point2="-99.5,27"
-                    Point3="-99.5,31" />
-                  <mssgle:LineSegment
-                    End="-99.5,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-63.63123046875,32,27.7624609375,9.5341796875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="151,42"
+          Id="Package\ETL\Contar Errores"
+          TopLeft="879,489" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\ETL\Buscar Registros DW"
+          TopLeft="310,647" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\ETL\Fecha_fin NULL"
+          TopLeft="323,537" />
         <NodeLayout
           Size="111,42"
           Id="Package\ETL\SCD 2"
-          TopLeft="321,747" />
+          TopLeft="417,862" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\ETL\Unir Errores"
+          TopLeft="636,482" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\ETL\Registros SCD 2"
+          TopLeft="545,938" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\ETL\Conversion Datos"
+          TopLeft="311,217" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\ETL\Pais Desconocido"
+          TopLeft="474,389" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\ETL\Contar Sin Cambios"
+          TopLeft="46,770" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\ETL\Unir Registros"
+          TopLeft="332,450" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\ETL\Nuevos Registros DW"
+          TopLeft="635,728" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\ETL\Contar SCD2"
+          TopLeft="357,1047" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\ETL\Actualizar Datos"
+          TopLeft="186,868" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\ETL\Actualizar SCD 2"
+          TopLeft="340,974" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Union All Output 11]"
+          TopLeft="774,506.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105,0"
+              Start="0,0"
+              End="97.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Union All Output 1]"
+          TopLeft="404.25,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Sin Cambios]"
+          TopLeft="285,792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62,0"
+              Start="0,0"
+              End="-54.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-54.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-54.9382421875,5,55.376484375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[SCD 2]"
-          TopLeft="294.333333333333,699">
+          TopLeft="390.333333333333,814">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3951,31 +4986,55 @@ ORDER BY producto.entity_id ASC;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ETL.Paths[Multicast Output 1]"
-          TopLeft="376.5,789">
+          Id="Package\ETL.Paths[SCD 1]"
+          TopLeft="365,814">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="153,34"
+              EndConnector="-99.5,54"
               Start="0,0"
-              End="153,26.5">
+              End="-99.5,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13" />
+                    End="0,23" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="4,17" />
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
                   <mssgle:LineSegment
-                    End="149,17" />
+                    End="-95.5,27" />
                   <mssgle:CubicBezierSegment
-                    Point1="149,17"
-                    Point2="153,17"
-                    Point3="153,21" />
+                    Point1="-95.5,27"
+                    Point2="-99.5,27"
+                    Point3="-99.5,31" />
                   <mssgle:LineSegment
-                    End="153,26.5" />
+                    End="-99.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.63123046875,32,27.7624609375,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Salida de origen de ADO NET]"
+          TopLeft="388,45">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3984,13 +5043,99 @@ ORDER BY producto.entity_id ASC;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\ETL\Actualizar SCD 2"
-          TopLeft="244,859" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Row Count Output 1]"
+          TopLeft="385.5,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,66"
+              Start="0,0"
+              End="8.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="4.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,33"
+                    Point2="8.5,33"
+                    Point3="8.5,37" />
+                  <mssgle:LineSegment
+                    End="8.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[OLE DB Command Output1]"
+          TopLeft="265.5,910">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,44"
+              Start="0,0"
+              End="-34.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
+                  <mssgle:LineSegment
+                    End="-30.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,22"
+                    Point2="-34.5,22"
+                    Point3="-34.5,26" />
+                  <mssgle:LineSegment
+                    End="-34.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[OLE DB Command Output]"
+          TopLeft="425.25,1016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Multicast Output 2]"
-          TopLeft="359.333333333333,789">
+          TopLeft="455.333333333333,904">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4022,13 +5167,115 @@ ORDER BY producto.entity_id ASC;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149,42"
-          Id="Package\ETL\Unir Registros"
-          TopLeft="236,335" />
+        <EdgeLayout
+          Id="Package\ETL.Paths[Multicast Output 1]"
+          TopLeft="472.5,904">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153,34"
+              Start="0,0"
+              End="153,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="149,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149,17"
+                    Point2="153,17"
+                    Point3="153,21" />
+                  <mssgle:LineSegment
+                    End="153,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup No Match Output1]"
+          TopLeft="402,689">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="326.5,39"
+              Start="0,0"
+              End="326.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="4,19.5" />
+                  <mssgle:LineSegment
+                    End="322.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="322.5,19.5"
+                    Point2="326.5,19.5"
+                    Point3="326.5,23.5" />
+                  <mssgle:LineSegment
+                    End="326.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="107.44361328125,24.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup No Match Output]"
+          TopLeft="421.666666666667,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.833333333333,38"
+              Start="0,0"
+              End="135.833333333333,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4008810572687" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4008810572687"
+                    Point2="0,15.4008810572687"
+                    Point3="4,15.4008810572687" />
+                  <mssgle:LineSegment
+                    End="131.833333333333,15.4008810572687" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.833333333333,15.4008810572687"
+                    Point2="135.833333333333,15.4008810572687"
+                    Point3="135.833333333333,19.4008810572687" />
+                  <mssgle:LineSegment
+                    End="135.833333333333,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.1102799479167,20.4008810572687,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ETL.Paths[Lookup Match Output1]"
-          TopLeft="268.333333333333,236">
+          TopLeft="364.333333333333,351">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4063,8 +5310,126 @@ ORDER BY producto.entity_id ASC;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Match Output]"
+          TopLeft="368.833333333333,689">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,31.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Error Output1]"
+          TopLeft="436,351">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="269,131"
+              Start="0,0"
+              End="269,123.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.941605839416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.941605839416"
+                    Point2="0,44.941605839416"
+                    Point3="4,44.941605839416" />
+                  <mssgle:LineSegment
+                    End="265,44.941605839416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="265,44.941605839416"
+                    Point2="269,44.941605839416"
+                    Point3="269,48.941605839416" />
+                  <mssgle:LineSegment
+                    End="269,123.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="88.63361328125,49.941605839416,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Lookup Error Output]"
+          TopLeft="431.333333333333,647">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="273.666666666667,-123"
+              Start="0,0"
+              End="273.666666666667,-115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-45.8362068965517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-45.8362068965517"
+                    Point2="0,-49.8362068965517"
+                    Point3="4,-49.8362068965517" />
+                  <mssgle:LineSegment
+                    End="269.666666666667,-49.8362068965517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="269.666666666667,-49.8362068965517"
+                    Point2="273.666666666667,-49.8362068965517"
+                    Point3="273.666666666667,-53.8362068965517" />
+                  <mssgle:LineSegment
+                    End="273.666666666667,-115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="90.9669466145833,-44.8362068965517,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL.Paths[Derived Column Output1]"
+          TopLeft="402,579">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\ETL.Paths[Derived Column Output]"
-          TopLeft="378,295">
+          TopLeft="474,410">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4090,46 +5455,20 @@ ORDER BY producto.entity_id ASC;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\ETL\Fecha_fin NULL"
-          TopLeft="227,422" />
         <EdgeLayout
-          Id="Package\ETL.Paths[Union All Output 1]"
-          TopLeft="308.25,377">
+          Id="Package\ETL.Paths[Data Conversion Output]"
+          TopLeft="393.5,259">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,50"
               Start="0,0"
-              End="0,37.5">
+              End="0,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ETL.Paths[Derived Column Output1]"
-          TopLeft="306,464">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68"
-              Start="0,0"
-              End="0,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4146,6 +5485,78 @@ ORDER BY producto.entity_id ASC;</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Buscar Nombre Pais">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Campania]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Buscar Registros DW">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Producto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Registros SCD 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL\Nuevos Registros DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -4201,77 +5612,5 @@ ORDER BY producto.entity_id ASC;</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\Buscar Nombre Pais">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Campania]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\Buscar Registros DW">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Producto]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\Nuevos Registros DW">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\ETL\Registros SCD 2">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

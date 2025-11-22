@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{89B186C7-F1B6-4C56-8590-A564B72D20EE}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{4EC0832C-86E1-42F0-8809-7462504205F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
           <DTS:Password
             DTS:Name="password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABWNX1P3FtLpEaqONFJ84qg39mCfrPRDkqHrKWPdotZQAAAAAAOgAAAAAIAACAAAABOAXlCj6qFWAyZYLgslsPUCtXutUX0kUbdCG/yqOjgnyAAAAAiLzhPZ75aVcX0q3/hWShaQH88cK+eEBzFXfVXZgKe90AAAACXyOxdcP05ExoFjURhhw5r3vncdGBH1oNsvCTTbY/3KiaNxl/mUqo/7q0KKp/N86mMKdUVJihcpXDBCLIA0IOa</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAenEPaUzguEyAoI2nAyDmLwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1l695dApYKwu2BrgKAKtdyv8oPQ1rZcUNhsBM8FbKTgAAAAAOgAAAAAIAACAAAACUHM4RdxXXpZ8NGIkaq7b6OupPsWE/lQ//hTIZmLl2qCAAAAA+EhsxQBA/HR0RqOoHTOSipEz0CcWnRhzFKUDRrFMrmEAAAAAD54TKXzGk43SbPWn/qYQucqvj+Znrk1xyAL+3s8qOSf/rgWwqQu0lScqIob04IopqLPisgJVBk85ZuP9DUbbJ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2381,46 +2381,46 @@ FROM customer_entity a;</property>
         <NodeLayout
           Size="172,42"
           Id="Package\DimCliente\Generar Columnas"
-          TopLeft="216,257.5" />
+          TopLeft="216,335.5" />
         <NodeLayout
           Size="159,42"
           Id="Package\DimCliente\Aztualizar Datos"
-          TopLeft="94,588" />
+          TopLeft="94,666" />
         <NodeLayout
           Size="161,42"
           Id="Package\DimCliente\Lectura Magento"
-          TopLeft="228.5,22.5" />
+          TopLeft="221.5,64.5" />
         <NodeLayout
           Size="187,42"
           Id="Package\DimCliente\Nuevos Registros DW"
-          TopLeft="648,387" />
+          TopLeft="648,465" />
         <NodeLayout
           Size="154,42"
           Id="Package\DimCliente\Compara datos"
-          TopLeft="225,477" />
+          TopLeft="225,555" />
         <NodeLayout
           Size="111,42"
           Id="Package\DimCliente\SCD 2"
-          TopLeft="348,593" />
+          TopLeft="348,671" />
         <NodeLayout
           Size="155,42"
           Id="Package\DimCliente\Convertir Datos"
-          TopLeft="227.5,149.5" />
+          TopLeft="227.5,227.5" />
         <NodeLayout
           Size="158,42"
           Id="Package\DimCliente\Buscar registros"
-          TopLeft="221,353" />
+          TopLeft="221,431" />
         <NodeLayout
           Size="163,42"
           Id="Package\DimCliente\Actualizar SCD 2"
-          TopLeft="524,587" />
+          TopLeft="524,665" />
         <NodeLayout
           Size="161,42"
           Id="Package\DimCliente\Registros SCD 2"
-          TopLeft="322,719" />
+          TopLeft="322,797" />
         <EdgeLayout
           Id="Package\DimCliente.Paths[Lookup No Match Output]"
-          TopLeft="379,374">
+          TopLeft="379,452">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2456,7 +2456,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Lookup Match Output]"
-          TopLeft="301,395">
+          TopLeft="301,473">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2480,7 +2480,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Derived Column Output]"
-          TopLeft="301,299.5">
+          TopLeft="301,377.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2502,7 +2502,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Data Conversion Output]"
-          TopLeft="303.5,191.5">
+          TopLeft="303.5,269.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2524,7 +2524,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[SCD 2]"
-          TopLeft="326.333333333333,519">
+          TopLeft="326.333333333333,597">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2560,7 +2560,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[SCD 1]"
-          TopLeft="302,519">
+          TopLeft="302,597">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2596,7 +2596,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Multicast Output 2]"
-          TopLeft="403,635">
+          TopLeft="403,713">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2618,7 +2618,7 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Multicast Output 1]"
-          TopLeft="459,611">
+          TopLeft="459,689">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2641,33 +2641,21 @@ FROM customer_entity a;</property>
         <NodeLayout
           Size="161,42"
           Id="Package\DimCliente\Contar Registros"
-          TopLeft="239,89" />
+          TopLeft="228,144" />
         <EdgeLayout
           Id="Package\DimCliente.Paths[Salida de origen de ADO NET]"
-          TopLeft="309,64.5">
+          TopLeft="305.25,106.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.5,24.5"
+              EndConnector="0,37.5"
               Start="0,0"
-              End="10.5,17">
+              End="0,30">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.25"
-                    Point2="0,12.25"
-                    Point3="4,12.25" />
-                  <mssgle:LineSegment
-                    End="6.5,12.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.5,12.25"
-                    Point2="10.5,12.25"
-                    Point3="10.5,16.25" />
-                  <mssgle:LineSegment
-                    End="10.5,17" />
+                    End="0,30" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2678,30 +2666,18 @@ FROM customer_entity a;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DimCliente.Paths[Row Count Output 1]"
-          TopLeft="400,110">
+          TopLeft="306.75,186">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.5,60.5"
+              EndConnector="0,41.5"
               Start="0,0"
-              End="-10,60.5">
+              End="0,34">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,56.5"
-                    Point2="22.5,60.5"
-                    Point3="18.5,60.5" />
-                  <mssgle:LineSegment
-                    End="-10,60.5" />
+                    End="0,34" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2713,10 +2689,10 @@ FROM customer_entity a;</property>
         <NodeLayout
           Size="147,42"
           Id="Package\DimCliente\Contar SCD 1"
-          TopLeft="80,661" />
+          TopLeft="80,739" />
         <EdgeLayout
           Id="Package\DimCliente.Paths[OLE DB Command Output]"
-          TopLeft="173.5,630">
+          TopLeft="173.5,708">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2751,10 +2727,10 @@ FROM customer_entity a;</property>
         <NodeLayout
           Size="147,42"
           Id="Package\DimCliente\Contar SCD 2"
-          TopLeft="521,677" />
+          TopLeft="521,755" />
         <EdgeLayout
           Id="Package\DimCliente.Paths[Multicast Output 3]"
-          TopLeft="420.666666666667,635">
+          TopLeft="420.666666666667,713">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2789,10 +2765,10 @@ FROM customer_entity a;</property>
         <NodeLayout
           Size="177,42"
           Id="Package\DimCliente\Contar Sin Cambios"
-          TopLeft="529,493" />
+          TopLeft="529,571" />
         <EdgeLayout
           Id="Package\DimCliente.Paths[Sin Cambios]"
-          TopLeft="379,498">
+          TopLeft="379,576">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

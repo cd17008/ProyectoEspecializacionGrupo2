@@ -2,68 +2,68 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>Grupo2DW</Name>
-    <LastWriteTime>2025-11-21T09:45:51.185673Z</LastWriteTime>
+    <LastWriteTime>2025-11-22T03:35:50.3609396Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>DimCampania.dtsx</Name>
-      <LastWriteTime>2025-11-20T16:35:22.3103865Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:49:19.9078802Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimCliente.dtsx</Name>
-      <LastWriteTime>2025-11-21T09:45:46.8877087Z</LastWriteTime>
+      <LastWriteTime>2025-11-21T09:46:41.2125325Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimDireccion.dtsx</Name>
-      <LastWriteTime>2025-11-20T10:08:46.7249874Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:42:49.8041813Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimMetodoEnvio.dtsx</Name>
-      <LastWriteTime>2025-11-20T18:54:33.7644495Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:43:50.4652564Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimMetodoPago.dtsx</Name>
-      <LastWriteTime>2025-11-20T10:24:31.9328805Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:51:05.2500888Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimOrden.dtsx</Name>
-      <LastWriteTime>2025-11-20T10:41:32.9221132Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:45:40.5737448Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimProducto.dtsx</Name>
-      <LastWriteTime>2025-11-21T09:41:16.8903338Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:58:52.2850839Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimTipoCampania.dtsx</Name>
-      <LastWriteTime>2025-11-20T14:55:14.5778681Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:46:49.7952302Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>FactVentas.dtsx</Name>
-      <LastWriteTime>2025-11-19T11:03:17.1038236Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:25:38.4786897Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>FactCampania.dtsx</Name>
-      <LastWriteTime>2025-11-19T04:46:37.1960902Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:35:38.4008687Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>FactUsoCupon.dtsx</Name>
-      <LastWriteTime>2025-11-20T05:56:01.4726685Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:14:14.1811636Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Orquestador.dtsx</Name>
-      <LastWriteTime>2025-11-21T02:20:53.9556713Z</LastWriteTime>
+      <LastWriteTime>2025-11-22T03:35:31.3503194Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
